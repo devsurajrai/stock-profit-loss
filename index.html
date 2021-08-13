@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Stock:Profit-Loss</title>
+</head>
+<body>
+  <div class="container-top">
+    <div class="container-mid ">
+      <header class="heading ">
+        <h1 id="header__heading">Stock Profit or Loss Calculator <img id="header__heading-img"src="media/calculator.png"></h1>
+      </header>
+      <div class="container-bottom">
+        <section class="inputs ">
+          <input type="number" class="stock-price-bought " placeholder="Stock bought @ Rs"><br>
+          <input type="number" class="stock-number  " placeholder="How many stocks?"><br>
+          <input type="number" class="stock-price-now " placeholder="Stock price now?">
+          <section class="input__result  ">
+              <p id="result-text"></p>
+          </section>
+        </section>
+        <section class="button-sec">
+          <button>Go</button><br>
+          <a href="index.html"><button>Refresh</button></a>
+        </section>
+    </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
