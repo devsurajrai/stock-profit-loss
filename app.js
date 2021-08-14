@@ -10,32 +10,30 @@ inputStockPriceBought=document.querySelector(".stock-price-bought")
 inputStockCount=document.querySelector(".stock-number")
 inputStockPriceNow=document.querySelector(".stock-price-now")
 
-let themeChangeValue="profit"
 
+let themeChangeValue="profit"
+let moveForward="true"
 
 function profitOrLossCal(totalPriceBNow,totalPriceBought){
-let percentage=((totalPriceBNow/totalPriceBought)*100)
-let priceDiff=totalPriceBNow-totalPriceBought
-
-if(percentage>100){
-  return `You earned ${(percentage-100).toFixed(2)}% profit which amounts to be Rs.${priceDiff}`
-}
-else if(percentage<100){
-  themeChangeValue="loss"
-  return `You met with ${(100-percentage).toFixed(2)}% loss which amounts to be Rs.${-1*priceDiff}`
-}
-else if(percentage===100){
-  themeChangeValue=""
-  return `No Profit No Loss`
-
-
+   let priceDiff=totalPriceBNow-totalPriceBought
+   let percentage=((totalPriceBNow/totalPriceBought)*100)
+   if(percentage>100){
+     return `You earned ${(percentage-100).toFixed(2)}% profit which amounts to be Rs.${priceDiff}`
+   }
+   else if(percentage<100){
+     themeChangeValue="loss"
+     return `You met with ${(100-percentage).toFixed(2)}% loss which amounts to be Rs.${-1*priceDiff}`
+   }
+   else if(percentage===100){
+     themeChangeValue=""
+     return `No Profit No Loss`
 }
 }
 
 function calculateProfitOrLoss(priceBought,stockCount,priceNow){
-let totalPriceBought=priceBought*stockCount
-let totalPriceBNow=priceNow*stockCount
-return profitOrLossCal(totalPriceBNow,totalPriceBought)
+   let totalPriceBought=priceBought*stockCount
+   let totalPriceBNow=priceNow*stockCount
+   return profitOrLossCal(totalPriceBNow,totalPriceBought)
 }
 
 function themeChange(profitOrLoss){
@@ -61,7 +59,6 @@ function themeChange(profitOrLoss){
   }
   else{
   resultSec.classList.add("display-block")
-
   }
 }
 
@@ -73,7 +70,28 @@ function profitOrLossAnalysis(){
   )
 }
 
+function inputValidation(){
+  inputField.forEach((input)=>{
+    if(input.value===""||parseInt(input.value)===0||parseInt(input.value)<0){
+      moveForward=false
+      console.log(moveForward)
+    }
+  })
+}
+
+function ifMoveForwardTrue(){
+  if(moveForward){
+  profitOrLossAnalysis()
+  themeChange(themeChangeValue)
+  }
+  else{
+    resultText.innerHTML="Please Check The Inputs"
+    resultText.style.color="red"
+    resultSec.classList.add("display-block")
+  }
+}
+
 goButton.addEventListener('click',()=>{
-    profitOrLossAnalysis()
-    themeChange(themeChangeValue)
+  inputValidation()
+  ifMoveForwardTrue()
 })
