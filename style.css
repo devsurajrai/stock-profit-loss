@@ -164,4 +164,32 @@ input:hover{
 }
 
 
+.list-no-bullets {
+  list-style: none;
+}
+
+.list-item-inline {
+  display: inline;
+  padding: 0rem 0.5rem;
+}
+
+.link {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.footer {
+  font-weight: bold;
+  padding: 10px;
+  padding-bottom: 15px;
+}
+
+.footer-header {
+  text-align: center;
+  padding: 10px;
+  color: Black;
+  padding-bottom: 20px;
+  padding-left: 35px
+}
+
 
