@@ -2,7 +2,7 @@
 
 This app intends to find out weather you have made profit or loss in a particular stock according to the data provided to it.
 
-You can see this app in action here: https://stock-pro-los.netlify.app
+#### Try it Live: [Go to the project](https://stock-pro-los.netlify.app)
 
 ## Screenshots 👇
 
