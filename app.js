@@ -18,6 +18,7 @@ function profitOrLossCal(totalPriceBNow, totalPriceBought) {
   let priceDiff = totalPriceBNow - totalPriceBought
   let percentage = ((totalPriceBNow / totalPriceBought) * 100)
   if (percentage > 100) {
+    console.log(percentage)
     themeChangeValue = "profit"
     return `You earned ${(percentage - 100).toFixed(2)}% profit which amounts to be Rs.${priceDiff}`
   }
@@ -36,8 +37,8 @@ function profitOrLossCal(totalPriceBNow, totalPriceBought) {
 }
 
 function calculateProfitOrLoss(priceBought, stockCount, priceNow) {
-  let totalPriceBought = priceBought * stockCount
-  let totalPriceBNow = priceNow * stockCount
+  let totalPriceBought = Number(priceBought) * Number(stockCount)
+  let totalPriceBNow = Number(priceNow) * Number(stockCount)
   return profitOrLossCal(totalPriceBNow, totalPriceBought)
 }
 
@@ -55,10 +56,12 @@ function themeChange(profitOrLoss) {
     resultSec.classList.add("display-block")
 
     if (profitOrLoss === "profit") {
+      mainContainer.classList.remove("background-profit-container-mid-loss")
       mainContainer.classList.add("background-profit-container-mid-profit")
       resultText.style.color = "white"
     }
     else {
+      mainContainer.classList.remove("background-profit-container-mid-profit")
       mainContainer.classList.add("background-profit-container-mid-loss")
       resultText.style.color = "white"
     }
@@ -117,7 +120,6 @@ function ifMoveForwardTrue() {
 }
 
 goButton.addEventListener('click', () => {
-
   inputValidation()
   ifMoveForwardTrue()
 })
